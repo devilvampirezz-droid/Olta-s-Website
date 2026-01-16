@@ -38,7 +38,7 @@ body {
   letter-spacing: 1px;
 }
 
-.hero p {
+.tagline {
   color: #f2e6b5;
   margin-top: 6px;
   font-size: 0.9rem;
@@ -64,18 +64,32 @@ body {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  align-items: stretch;
   gap: 35px;
   flex-wrap: wrap;
 }
 
+/* LINK WRAPPER (IMPORTANT) */
+.bag-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 300px;   /* keeps cards aligned */
+}
+
+.bag-link:hover {
+  text-decoration: none;
+}
+
 /* CARD */
 .bag-card {
-  width: 300px;
+  width: 100%;
   background: #0b0b0b;
   border-radius: 16px;
   padding: 18px;
   box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .bag-card:hover {
@@ -104,28 +118,7 @@ body {
   font-size: 0.85em;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0b0b0b;
-  color: #d4af37;
-  font-size: 0.8em;
-  border-top: 1px solid rgba(212,175,55,0.3);
-}
-
-/* MAKE BAG CARDS CLICKABLE */
-.bag-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;   /* important so the whole card is clickable */
-}
-
-.bag-link:hover {
-  text-decoration: none;
-}
-
-/* GOLD "BUTTON" (visual only, not a real button) */
+/* GOLD "BUTTON" (visual only) */
 .buy-btn {
   margin-top: 14px;
   padding: 8px 18px;
@@ -143,3 +136,17 @@ footer {
   transform: scale(1.05);
 }
 
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0b0b0b;
+  color: #d4af37;
+  font-size: 0.8em;
+  border-top: 1px solid rgba(212,175,55,0.3);
+}
+
+/* REMOVE BLUE LINK COLORS */
+a, a:visited {
+  color: inherit;
+}
