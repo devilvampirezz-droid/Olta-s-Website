@@ -60,7 +60,14 @@
 
     const keys = Object.keys(cart);
     if(keys.length === 0){
-      cartList.innerHTML = `<p class="muted">Your cart is empty. Go to <a class="link-btn" href="shop.html">Catalog</a></p>`;
+      cartList.innerHTML = `
+        <p class="muted">
+          Your cart is empty. Go back to 
+          <a href="shop.html" style="color:#d4af37; text-decoration:underline;">
+            Shop
+          </a>.
+        </p>
+      `;
       totalEl.textContent = "$0";
       return;
     }
