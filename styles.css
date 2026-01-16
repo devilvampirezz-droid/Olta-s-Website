@@ -1,91 +1,74 @@
-/* Base */
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background: #ffffff;
   color: #1a1a1a;
 }
 
-/* Hero */
+/* HERO */
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(to bottom, #f5f0e8, #ffffff);
+  background: #f5f0e8;
 }
 
 .logo {
   width: 160px;
-  height: auto;
   display: block;
-  margin: 0 auto 18px;
+  margin: 0 auto 15px;
 }
 
-.hero h1 {
-  margin: 0;
-  font-size: 2.2rem;
-  color: #4b2e1e;
-  letter-spacing: 1px;
-}
+.subtitle { color: #c6a15b; }
 
-.subtitle {
-  margin-top: 8px;
-  color: #c6a15b;
-}
-
-/* Sections */
-.brand-history,
-.iconic-bags {
+/* SECTIONS */
+section {
   padding: 60px 20px;
   text-align: center;
 }
 
-.brand-history h2,
-.iconic-bags h2 {
-  color: #4b2e1e;
-  margin-bottom: 16px;
-}
+h2 { color: #4b2e1e; }
 
-.brand-history p {
-  max-width: 720px;
-  margin: 0 auto;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* Bags */
-.iconic-bags { background: #f5f0e8; }
-
+/* BAGS */
 .bags-container {
-  max-width: 980px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
-  gap: 28px;
+  gap: 25px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .bag {
-  width: 320px;
+  width: 300px;
   background: #fff;
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  text-align: center;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .bag img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-radius: 12px;
-  display: block;
+  border-radius: 10px;
+}
+.nav {
+  position: sticky;
+  top: 0;
+  background: #4b2e1e;
+  padding: 10px;
+  text-align: center;
 }
 
-.bag h3 {
-  margin: 14px 0 6px;
-  color: #4b2e1e;
+.nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.bag p { margin: 0; color: #6b4a2e; }
+html {
+  scroll-behavior: smooth;
+}
