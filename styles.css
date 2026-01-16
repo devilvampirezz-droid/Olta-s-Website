@@ -113,3 +113,32 @@ footer {
   font-size: 0.8em;
   border-top: 1px solid rgba(212,175,55,0.3);
 }
+
+/* MAKE BAG CARDS CLICKABLE */
+.bag-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.bag-link:hover {
+  text-decoration: none;
+}
+
+/* OPTIONAL BUY BUTTON */
+.buy-btn {
+  margin-top: 14px;
+  padding: 8px 18px;
+  border: none;
+  background: #d4af37;
+  color: #0b0b0b;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.buy-btn:hover {
+  background: #f2e6b5;
+  transform: scale(1.05);
+}
