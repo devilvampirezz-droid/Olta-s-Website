@@ -1,8 +1,8 @@
 /* Body & Font */
 body {
-    background: #ffffff;
-    color: #111;
-    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #fffaf4; /* cream background for luxury feel */
+    color: #222;
+    font-family: "Georgia", serif;
     line-height: 1.6;
     padding: 0;
     margin: 0;
@@ -10,73 +10,97 @@ body {
 
 /* Hero / Logo Section */
 .hero {
-    background: #f8f8f8;
-    color: #000;
+    background: #fdf6f0; /* slightly brighter cream */
+    color: #1a1a1a;
     text-align: center;
-    padding: 80px 20px;
+    padding: 100px 20px;
 }
 
 .logo {
-    width: 140px;
-    margin-bottom: 20px;
+    width: 180px;          /* bigger logo */
+    display: block;
+    margin: 0 auto 30px auto; /* center it */
 }
 
-/* Sections */
-section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 60px 20px;
-    text-align: center;
+/* Headings */
+h1 {
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
+    font-size: 36px;
+    margin-bottom: 40px;
     letter-spacing: 1px;
 }
 
-/* Bags Section Grid */
+/* Sections */
+section p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    color: #444;
+}
+
+/* Bags Section */
+.bags {
+    background: #fffaf4;
+    padding: 120px 20px; /* bigger spacing for luxury look */
+    text-align: center;
+}
+
 .bag-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 900px;
+    gap: 60px;
+    max-width: 1000px;
     margin: auto;
 }
 
+.bag-card {
+    text-align: center;
+}
+
 .bag-card img {
-    width: 100%;
-    border-radius: 14px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-    transition: transform 0.4s ease;
+    width: 90%;          /* smaller & uniform */
+    max-width: 400px;    /* prevents stretching */
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    display: block;
+    margin: auto;
 }
 
 .bag-card img:hover {
     transform: scale(1.05);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.15);
 }
 
 .bag-card h3 {
-    margin-top: 15px;
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 22px;
+    color: #b28d59; /* goldish color */
 }
 
 .bag-card p {
     color: #555;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 /* Footer */
 footer {
-    background: #f8f8f8;
-    color: #111;
+    background: #fdf6f0;
+    color: #222;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     font-size: 14px;
 }
 
-/* Responsive Mobile Layout */
+/* Responsive Mobile */
 @media (max-width: 768px) {
     .bag-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 }
