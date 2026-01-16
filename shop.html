@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Shop | LV Inspired</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Small extra shop styles */
+    .shop-wrap { max-width: 1050px; margin: 0 auto; padding: 60px 20px; }
+    .shop-top { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+    .back-link { color:#d4af37; text-decoration:none; border:1px solid rgba(212,175,55,.35); padding:10px 14px; border-radius:12px; }
+    .cart-pill { border:1px solid rgba(212,175,55,.35); padding:10px 14px; border-radius:999px; color:#f2e6b5; }
+    .product {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .product img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 10px 25px rgba(212,175,55,.15);
+    }
+    .panel {
+      background:#0b0b0b;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(212,175,55,.15);
+    }
+    .price { color:#d4af37; font-size: 1.6rem; margin: 10px 0 14px; }
+    .muted { color:#f2e6b5; opacity: .9; line-height: 1.6; }
+    .chips { display:flex; gap:10px; flex-wrap:wrap; margin: 16px 0; }
+    .chip { border:1px solid rgba(212,175,55,.35); color:#f2e6b5; padding:8px 12px; border-radius:999px; font-size:.85rem; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px; }
+    .btn {
+      border: none;
+      padding: 10px 16px;
+      border-radius: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn-primary { background:#d4af37; color:#0b0b0b; }
+    .btn-ghost { background:transparent; color:#d4af37; border:1px solid rgba(212,175,55,.45); }
+    .note { margin-top: 18px; font-size:.85rem; opacity:.9; color:#f2e6b5; border-top:1px solid rgba(212,175,55,.25); padding-top:14px; }
+    .grid2 {
+      margin-top: 38px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .mini {
+      background:#111;
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid rgba(212,175,55,.15);
+    }
+    .mini h4 { color:#d4af37; margin-bottom: 8px; }
+    @media (max-width: 900px) {
+      .product { grid-template-columns: 1fr; }
+      .product img { height: 420px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Fake Shop</h1>
+    <p class="tagline">This is a fan-made demo shop — not real purchases.</p>
+  </header>
+
+  <main class="shop-wrap">
+    <div class="shop-top">
+      <a class="back-link" href="index.html">← Back to Home</a>
+      <div class="cart-pill">Cart: <span id="cartCount">0</span> item(s)</div>
+    </div>
+
+    <section class="product">
+      <img id="productImg" src="images/bag1.jpg" alt="Product image">
+
+      <div class="panel">
+        <h2 id="productName" style="color:#d4af37;">Vernis Pouch</h2>
+        <div class="price" id="productPrice">$2,390</div>
+        <p class="muted" id="productDesc">
+          Glossy patent-leather style with bold luxury finish.
+        </p>
+
+        <div class="chips" id="productChips">
+          <span class="chip">Black & Gold</span>
+          <span class="chip">Limited Style</span>
+          <span class="chip">Mini Bag</span>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+          <button class="btn btn-ghost" id="buyNowBtn">Fake Checkout</button>
+        </div>
+
+        <div class="note" id="notice">
+          ⚠️ This is a fake shop page for a school/project demo. No real orders.
+        </div>
+
+        <div class="grid2">
+          <div class="mini">
+            <h4>Details</h4>
+            <p class="muted" id="productDetails">Material: Patent finish • Strap: Optional • Size: Compact</p>
+          </div>
+          <div class="mini">
+            <h4>Delivery</h4>
+            <p class="muted">Fake delivery in 2–5 business days. (Demo only)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Fan-made educational project • Not an official Louis Vuitton website</p>
+  </footer>
+
+  <script>
+    // Fake product data
+    const products = {
+      "vernis": {
+        name: "Vernis Pouch",
+        price: "$2,390",
+        img: "images/bag1.jpg",
+        desc: "Glossy patent-leather style with bold luxury finish.",
+        details: "Material: Patent finish • Strap: Optional • Size: Compact",
+        chips: ["Patent Look", "Evening Style", "Compact Size"]
+      },
+      "nano-speedy": {
+        name: "Nano Speedy",
+        price: "$2,990",
+        img: "images/bag2.jpg",
+        desc: "Iconic mini Speedy style often seen in special editions.",
+        details: "Material: Canvas/Leather mix • Strap: Included • Size: Nano",
+        chips: ["Mini Icon", "Crossbody", "Statement Piece"]
+      }
+    };
+
+    // Read query string ?item=...
+    const params = new URLSearchParams(window.location.search);
+    const item = params.get("item") || "vernis";
+    const p = products[item] || products["vernis"];
+
+    // Fill page
+    document.getElementById("productName").textContent = p.name;
+    document.getElementById("productPrice").textContent = p.price;
+    document.getElementById("productDesc").textContent = p.desc;
+    document.getElementById("productDetails").textContent = p.details;
+
+    const imgEl = document.getElementById("productImg");
+    imgEl.src = p.img;
+    imgEl.alt = p.name;
+
+    const chipsWrap = document.getElementById("productChips");
+    chipsWrap.innerHTML = "";
+    p.chips.forEach(c => {
+      const s = document.createElement("span");
+      s.className = "chip";
+      s.textContent = c;
+      chipsWrap.appendChild(s);
+    });
+
+    // Fake cart (stored in localStorage)
+    const cartKey = "fake_cart_count";
+    const cartCountEl = document.getElementById("cartCount");
+    const getCount = () => Number(localStorage.getItem(cartKey) || "0");
+    const setCount = (n) => localStorage.setItem(cartKey, String(n));
+
+    const refreshCart = () => { cartCountEl.textContent = getCount(); };
+    refreshCart();
+
+    document.getElementById("addToCartBtn").addEventListener("click", () => {
+      setCount(getCount() + 1);
+      refreshCart();
+      document.getElementById("notice").textContent = "✅ Added to cart (demo). Nothing is actually purchased.";
+    });
+
+    document.getElementById("buyNowBtn").addEventListener("click", () => {
+      document.getElementById("notice").textContent =
+        "🧾 Fake checkout complete! (Demo only) Thanks for testing.";
+    });
+  </script>
+
+</body>
+</html>
