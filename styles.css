@@ -5,43 +5,25 @@
   padding: 0;
 }
 
+/* COLOR PALETTE
+Black: #0b0b0b
+Gold:  #d4af37
+Soft Gold: #f2e6b5
+Dark Gray: #1a1a1a
+*/
+
 /* BASE */
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background: #ffffff;
-  color: #1a1a1a;
-}
-
-/* NAVIGATION */
-.nav {
-  position: sticky;
-  top: 0;
-  background: #4b2e1e;
-  padding: 12px;
-  text-align: center;
-  z-index: 1000;
-}
-
-.nav a {
+  background: #0b0b0b;
   color: #ffffff;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
 }
 
-.nav a:hover {
-  color: #c6a15b;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* HERO / LOGO */
+/* HERO */
 .hero {
   text-align: center;
-  padding: 80px 20px;
-  background: #f5f0e8;
+  padding: 90px 20px;
+  background: #0b0b0b;
 }
 
 .logo {
@@ -51,26 +33,29 @@ html {
 }
 
 .hero h1 {
-  font-size: 2.2rem;
-  color: #4b2e1e;
+  font-size: 2.3rem;
+  color: #d4af37;
+  letter-spacing: 1px;
 }
 
 .hero p {
-  color: #c6a15b;
+  color: #f2e6b5;
   margin-top: 6px;
+  font-size: 0.9rem;
 }
 
 /* BAGS SECTION */
 .bags {
-  background: #ffffff;
+  background: #1a1a1a;
   padding: 80px 20px;
   text-align: center;
 }
 
 .bags h2 {
-  color: #4b2e1e;
+  color: #d4af37;
   margin-bottom: 40px;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
 }
 
 /* GRID */
@@ -79,22 +64,23 @@ html {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 35px;
   flex-wrap: wrap;
 }
 
 /* CARD */
 .bag-card {
   width: 300px;
-  background: #f5f0e8;
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
+  background: #0b0b0b;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bag-card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(212, 175, 55, 0.4);
 }
 
 /* IMAGE */
@@ -109,20 +95,21 @@ html {
 /* TEXT */
 .bag-card h3 {
   margin: 14px 0 6px;
-  color: #4b2e1e;
+  color: #d4af37;
 }
 
 .bag-card p {
   margin: 0;
-  color: #6b4a2e;
-  font-size: 0.9em;
+  color: #f2e6b5;
+  font-size: 0.85em;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
-  background: #4b2e1e;
-  color: white;
-  font-size: 0.85em;
+  background: #0b0b0b;
+  color: #d4af37;
+  font-size: 0.8em;
+  border-top: 1px solid rgba(212,175,55,0.3);
 }
