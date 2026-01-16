@@ -1,3 +1,1 @@
-document.getElementById("contactBtn").onclick = function() {
-    alert("Thanks for reaching out! 😊");
-};
+console.log("Louis Vuitton concept site loaded");
