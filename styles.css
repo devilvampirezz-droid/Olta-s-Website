@@ -5,13 +5,6 @@
   padding: 0;
 }
 
-/* COLOR PALETTE
-Black: #0b0b0b
-Gold:  #d4af37
-Soft Gold: #f2e6b5
-Dark Gray: #1a1a1a
-*/
-
 /* BASE */
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -28,6 +21,7 @@ body {
 
 .logo {
   width: 160px;
+  height: auto;
   display: block;
   margin: 0 auto 20px;
 }
@@ -69,16 +63,12 @@ body {
   flex-wrap: wrap;
 }
 
-/* LINK WRAPPER (IMPORTANT) */
+/* LINK WRAPPER */
 .bag-link {
+  display: block;
+  width: 300px;
   text-decoration: none;
   color: inherit;
-  display: block;
-  width: 300px;   /* keeps cards aligned */
-}
-
-.bag-link:hover {
-  text-decoration: none;
 }
 
 /* CARD */
@@ -118,7 +108,7 @@ body {
   font-size: 0.85em;
 }
 
-/* GOLD "BUTTON" (visual only) */
+/* GOLD "BUTTON" (VISUAL) */
 .buy-btn {
   margin-top: 14px;
   padding: 8px 18px;
@@ -131,7 +121,7 @@ body {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.buy-btn:hover {
+.bag-card:hover .buy-btn {
   background: #f2e6b5;
   transform: scale(1.05);
 }
@@ -143,10 +133,5 @@ footer {
   background: #0b0b0b;
   color: #d4af37;
   font-size: 0.8em;
-  border-top: 1px solid rgba(212,175,55,0.3);
-}
-
-/* REMOVE BLUE LINK COLORS */
-a, a:visited {
-  color: inherit;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
