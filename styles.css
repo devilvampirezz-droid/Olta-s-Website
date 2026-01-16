@@ -1,65 +1,82 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Body & Font */
 body {
-    font-family: "Times New Roman", serif;
-    background: #f5f5f5;
+    background: #ffffff;
     color: #111;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
 }
 
-/* Hero Section */
+/* Hero / Logo Section */
 .hero {
-    background: black;
-    color: white;
+    background: #f8f8f8;
+    color: #000;
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px;
 }
 
 .logo {
-    width: 120px;
+    width: 140px;
     margin-bottom: 20px;
 }
 
 /* Sections */
 section {
-    padding: 50px 20px;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
+    padding: 60px 20px;
+    text-align: center;
 }
 
 h2 {
-    margin-bottom: 20px;
-    font-size: 28px;
-}
-
-/* Collections */
-.collection {
-    background: white;
-    padding: 20px;
+    font-size: 32px;
     margin-bottom: 30px;
-    border-radius: 6px;
+    letter-spacing: 1px;
 }
 
-.collection img {
-    width: 100%;
-    border-radius: 6px;
+/* Bags Section Grid */
+.bag-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: auto;
 }
 
-/* Images */
-.wide-img {
+.bag-card img {
     width: 100%;
-    margin-top: 20px;
-    border-radius: 8px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease;
+}
+
+.bag-card img:hover {
+    transform: scale(1.05);
+}
+
+.bag-card h3 {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.bag-card p {
+    color: #555;
+    font-size: 15px;
 }
 
 /* Footer */
 footer {
-    background: black;
-    color: white;
+    background: #f8f8f8;
+    color: #111;
     text-align: center;
     padding: 20px;
     font-size: 14px;
+}
+
+/* Responsive Mobile Layout */
+@media (max-width: 768px) {
+    .bag-grid {
+        grid-template-columns: 1fr;
+    }
 }
