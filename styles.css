@@ -1,106 +1,113 @@
-/* Body & Font */
+/* ====== COLOR PALETTE ======
+Brown: #4b2e1e
+Gold:  #c6a15b
+Soft Beige: #f5f0e8
+Dark Text: #1a1a1a
+============================ */
+
+/* GENERAL STYLES */
 body {
-    background: #fffaf4; /* cream background for luxury feel */
-    color: #222;
-    font-family: "Georgia", serif;
-    line-height: 1.6;
-    padding: 0;
     margin: 0;
-}
-
-/* Hero / Logo Section */
-.hero {
-    background: #fdf6f0; /* slightly brighter cream */
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
     color: #1a1a1a;
+}
+
+/* HERO / LOGO SECTION */
+.hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 90px 20px;
+    background: linear-gradient(to bottom, #f5f0e8, #ffffff);
 }
 
-.logo {
-    width: 180px;          /* bigger logo */
-    display: block;
-    margin: 0 auto 30px auto; /* center it */
+.hero .logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 25px;
 }
 
-/* Headings */
-h1 {
-    font-size: 48px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
+.hero h1 {
+    font-size: 2.3em;
+    color: #4b2e1e;
     letter-spacing: 1px;
+    margin-bottom: 5px;
 }
 
-/* Sections */
-section p {
-    max-width: 800px;
-    margin: auto;
-    font-size: 18px;
-    color: #444;
+.hero .subtitle {
+    font-size: 1em;
+    color: #c6a15b;
+    font-weight: 500;
 }
 
-/* Bags Section */
-.bags {
-    background: #fffaf4;
-    padding: 120px 20px; /* bigger spacing for luxury look */
+/* BRAND HISTORY */
+.brand-history {
     text-align: center;
+    padding: 60px 20px;
 }
 
-.bag-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
-    max-width: 1000px;
-    margin: auto;
+.brand-history h2 {
+    font-size: 1.7em;
+    color: #4b2e1e;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
 }
 
-.bag-card {
+.brand-history p {
+    font-size: 1em;
+    color: #333333;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ICONIC BAGS */
+.iconic-bags {
     text-align: center;
+    padding: 60px 20px;
+    background-color: #f5f0e8;
 }
 
-.bag-card img {
-    width: 90%;          /* smaller & uniform */
-    max-width: 400px;    /* prevents stretching */
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    display: block;
-    margin: auto;
+.iconic-bags h2 {
+    font-size: 1.7em;
+    color: #4b2e1e;
+    margin-bottom: 35px;
 }
 
-.bag-card img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+/* BAGS GRID */
+.bags-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
 }
 
-.bag-card h3 {
-    margin-top: 20px;
-    font-size: 22px;
-    color: #b28d59; /* goldish color */
-}
-
-.bag-card p {
-    color: #555;
-    font-size: 16px;
-}
-
-/* Footer */
-footer {
-    background: #fdf6f0;
-    color: #222;
+.bag {
+    max-width: 300px;
     text-align: center;
-    padding: 30px;
-    font-size: 14px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    padding: 15px;
+    transition: transform 0.3s ease;
 }
 
-/* Responsive Mobile */
-@media (max-width: 768px) {
-    .bag-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+.bag:hover {
+    transform: translateY(-6px);
+}
+
+.bag img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.bag h3 {
+    font-size: 1.2em;
+    color: #4b2e1e;
+    margin-top: 12px;
+}
+
+.bag p {
+    font-size: 0.9em;
+    color: #6b4a2e;
 }
