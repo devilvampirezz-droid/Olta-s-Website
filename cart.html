@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Shop | Cart</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="hero">
+  <h1>Fake Cart</h1>
+  <p class="tagline">Checkout Demo • No real payments</p>
+</header>
+
+<main class="page-wrap">
+  <div class="topbar">
+    <a class="link-btn" href="shop.html">← Catalog</a>
+    <a class="link-btn" href="index.html">Home</a>
+    <div class="pill">Cart: <span id="cartCount">0</span> item(s)</div>
+  </div>
+
+  <div id="cartList"></div>
+
+  <div class="panel" style="margin-top:16px;">
+    <div class="total">Total: <span id="totalPrice">$0</span></div>
+    <div class="actions">
+      <button class="btn btn-primary" id="fakePay">Fake Pay</button>
+      <button class="btn btn-ghost" id="clearCart">Clear Cart</button>
+    </div>
+    <p class="muted" id="msg" style="margin-top:14px;">⚠️ Demo only — nothing is purchased.</p>
+  </div>
+</main>
+
+<footer>
+  <p>Fan-made educational project • Not an official Louis Vuitton website</p>
+</footer>
+
+<script>
+  const products = {
+    "vernis": { name:"Vernis Pouch", price:2390, img:"images/bag1.jpg" },
+    "nano-speedy": { name:"Nano Speedy", price:2990, img:"images/bag2.jpg" }
+  };
+
+  const cartKey = "fake_cart";
+  const getCart = () => JSON.parse(localStorage.getItem(cartKey) || "{}");
+  const setCart = (obj) => localStorage.setItem(cartKey, JSON.stringify(obj));
+  const countItems = (cart) => Object.values(cart).reduce((a,b)=>a+b,0);
+
+  const cartList = document.getElementById("cartList");
+  const cartCountEl = document.getElementById("cartCount");
+  const totalEl = document.getElementById("totalPrice");
+
+  function render(){
+    const cart = getCart();
+    cartCountEl.textContent = countItems(cart);
+
+    cartList.innerHTML = "";
+    let total = 0;
+
+    const keys = Object.keys(cart);
+    if(keys.length === 0){
+      cartList.innerHTML = `<p class="muted">Your cart is empty. Go to <a class="link-btn" href="shop.html">Catalog</a></p>`;
+      totalEl.textContent = "$0";
+      return;
+    }
+
+    keys.forEach(id => {
+      const qty = cart[id];
+      const p = products[id];
+      total += p.price * qty;
+
+      const item = document.createElement("div");
+      item.className = "cart-item";
+      item.innerHTML = `
+        <div class="cart-left">
+          <img src="${p.img}" alt="${p.name}">
+          <div>
+            <div style="color:#d4af37;font-weight:bold;margin-bottom:4px;">${p.name}</div>
+            <div class="muted">$${p.price.toLocaleString()} each</div>
+          </div>
+        </div>
+
+        <div class="qty">
+          <button data-act="minus" data-id="${id}">-</button>
+          <span>${qty}</span>
+          <button data-act="plus" data-id="${id}">+</button>
+        </div>
+      `;
+      cartList.appendChild(item);
+    });
+
+    totalEl.textContent = "$" + total.toLocaleString();
+  }
+
+  cartList.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if(!btn) return;
+
+    const id = btn.dataset.id;
+    const act = btn.dataset.act;
+
+    const cart = getCart();
+    if(act === "plus") cart[id] = (cart[id] || 0) + 1;
+    if(act === "minus") cart[id] = Math.max(0, (cart[id] || 0) - 1);
+    if(cart[id] === 0) delete cart[id];
+    setCart(cart);
+    render();
+  });
+
+  document.getElementById("clearCart").addEventListener("click", () => {
+    localStorage.removeItem(cartKey);
+    document.getElementById("msg").textContent = "🧹 Cart cleared (demo).";
+    render();
+  });
+
+  document.getElementById("fakePay").addEventListener("click", () => {
+    document.getElementById("msg").textContent = "✅ Fake payment complete! (Demo only)";
+  });
+
+  render();
+</script>
+
+</body>
+</html>
